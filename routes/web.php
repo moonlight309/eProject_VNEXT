@@ -1,6 +1,10 @@
 <?php
 
+
 use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +31,5 @@ Route::prefix('product')->group(function () {
     Route::delete('destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
     Route::get('detail/{id}', [ProductController::class, 'detail'])->name('product.detail');
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
