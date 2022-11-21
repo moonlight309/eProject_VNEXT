@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MakerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layout.master');
 })->name('home');
+
+Route::group([
+    'prefix' => 'makers',
+    'as' => 'makers.',
+], function () {
+    Route::get('create', [MakerController::class, 'create'])->name('create');
+    Route::post('store', [MakerController::class, 'store'])->name('store');
+    Route::get('edit', [MakerController::class, 'edit'])->name('edit');
+    Route::get('detail', [MakerController::class, 'detail'])->name('detail');
+});
+

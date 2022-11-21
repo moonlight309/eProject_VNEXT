@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Maker extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'code',
+        'name',
+        'logo',
+        'address',
+        'description',
+        'phone'
+    ];
 }
