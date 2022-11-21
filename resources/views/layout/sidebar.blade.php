@@ -41,35 +41,35 @@
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="javascript: void(0);" class="side-nav-link">
+                                    <a href="/" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span> Products </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="javascript: void(0);" class="side-nav-link">
+                                    <a href="/category" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span> Categories </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="javascript: void(0);" class="side-nav-link">
+                                    <a href="/maker" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span> Makers </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="javascript: void(0);" class="side-nav-link">
+                                    <a href="/new" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span> News </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="javascript: void(0);" class="side-nav-link">
+                                    <a href="/user" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
                                         <span> Users </span>
                                     </a>

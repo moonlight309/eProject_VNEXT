@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.master');
-})->name('home');
+Route::get('/', 'App\Http\Controllers\ProductController@list_product');
+Route::get('/maker', 'App\Http\Controllers\MakerController@list_maker');
+Route::get('/new', 'App\Http\Controllers\NewsController@list_new');
+Route::get('/user', 'App\Http\Controllers\UserController@list_user');
+Route::get('/category', 'App\Http\Controllers\CategoryController@list_category');
