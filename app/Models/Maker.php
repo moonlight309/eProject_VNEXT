@@ -9,12 +9,15 @@ class Maker extends Model
 {
     use HasFactory;
 
-    protected $fillable =[
-        'code',
-        'name',
+    protected $fillable = [
         'logo',
         'address',
         'description',
-        'phone'
+        'phone',
+        'code',
+        'name',
+        'created_user',
+        'updated_user',
+        'deleted_user'
     ];
 }
