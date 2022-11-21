@@ -9,20 +9,20 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public $per_page = 2;
+
+    public function load() {
+        $this->per_page += 5;
+    }
+
     public function index()
     {
         $topTenNews = News::query()
-            ->orderBy('id', 'desc')
-            ->limit(2)
-            ->get();
+            ->paginate($this->per_page);
         $topTenProducts = Product::query()
-            ->orderBy('id', 'desc')
-            ->limit(10)
-            ->get();
+            ->paginate($this->per_page);
         $topTenUsers = User::query()
-            ->orderBy('id', 'desc')
-            ->limit(10)
-            ->get();
+            ->paginate($this->per_page);
         return view('home')
             ->with('topTenNews', $topTenNews)
             ->with('topTenProducts', $topTenProducts)

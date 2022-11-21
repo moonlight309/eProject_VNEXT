@@ -1,5 +1,17 @@
 @extends('layout.master')
-
+@push('css')
+    <style>
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 25px;
+            -webkit-line-clamp: 3;
+            height: 75px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+@endpush
 @section('content')
 
     <div class="card">
@@ -18,12 +30,14 @@
                 <tbody>
                 @foreach( $topTenNews as $news )
                     <tr>
-                        <td>{{ $news->title }}</td>
-                        <td>{{ $news->content }}</td>
+                        <td><p>{{ $news->title }}</p></td>
+                        <td><p>{{ $news->content }}</p></td>
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="12"><i id="see_more" class=" uil-corner-left-down">See More</i></td>
+                    <td style="text-align: center" colspan="12">
+                        <i id="load_more" class="mdi mdi-arrow-down-thick">Load More</i>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -53,6 +67,11 @@
                         <td>{{ number_format($products->price)}} VNĐ</td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td style="text-align: center" colspan="12">
+                        <i id="load_more" class="mdi mdi-arrow-down-thick">Load More</i>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -85,33 +104,14 @@
                         <td>{{ $users->birthday }}</td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td style="text-align: center" colspan="12">
+                        <i id="load_more" class="mdi mdi-arrow-down-thick">Load More</i>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <script>
-        const limit = 2;
-        let start = 0;
 
-        function load_data_ajax(limit, start){
-            $.ajax({
-                url: "fetch_data.php",
-                type: "get",
-                data: {
-                    limit: limit,
-                    start: start
-                },
-                dataType: "json",
-                success: function (result) {
-                    console.log(result);
-                }
-            })
-        }
-
-        load_data_ajax(limit, start);
-        $('#see_more').click(function () {
-            start += limit;
-            load_data_ajax(limit, start);
-        })
-    </script>
 @endsection
