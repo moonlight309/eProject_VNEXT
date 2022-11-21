@@ -1,6 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +17,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', function () {
+    return view('layout.master');
+})->name('home');
+
+Route::prefix('product')->group(function () {
+    //Route::get('products', [ProductController::class, 'index'])->name('product.home');
+    Route::get('create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('show/{id}', [ProductController::class, 'show'])->name('product.show');
+    Route::put('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::delete('destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('detail/{id}', [ProductController::class, 'detail'])->name('product.detail');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
