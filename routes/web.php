@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MakerController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
@@ -24,11 +25,21 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('layout.master');
-})->name('home');
+})->middleware(['auth', 'verified'])->name('home');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::group([
     'prefix' => 'categories',
-    'as' => 'categories.',
+    'as'     => 'categories.',
 ], function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
 
@@ -45,7 +56,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'makers',
-    'as' => 'makers.',
+    'as'     => 'makers.',
 ], function () {
     Route::get('/', [MakerController::class, 'index'])->name('index');
     Route::get('create', [MakerController::class, 'create'])->name('create');
@@ -83,4 +94,5 @@ Route::group([
 
 });
 
+require __DIR__ . '/auth.php';
 

@@ -27,9 +27,14 @@
                                 <li class="side-nav-title side-nav-item">Navigation</li>
 
                                 <li class="side-nav-item">
+
                                     <a href="" class="side-nav-link">
-                                        <i class="mdi mdi-account mdi-24px"></i>
-                                        <span> Hello, Trong Dat</span>
+                                        <i class="mdi mdi-account-circle-outline"></i>
+                                        <span> Hello,
+                                        @isset(Auth::user()->name)
+                                            {{ Auth::user()->name }}
+                                        @endisset
+                                        </span>
                                     </a>
                                 </li>
 
@@ -49,14 +54,12 @@
 
                                 <li class="side-nav-item">
                                     <a href="{{route("categories.index")}}" class="side-nav-link">
-                                        <i class="uil-home-alt"></i>
+                                        <i class="mdi mdi-github-circle mdi-24px"></i>
                                         <span> Categories </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-
-
                                     <a href="{{route("makers.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-database-marker mdi-24px"></i>
                                         <span> Makers </span>
@@ -64,16 +67,13 @@
                                 </li>
 
                                 <li class="side-nav-item">
-
                                     <a href="{{route("news.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-newspaper mdi-24px"></i>
-
                                         <span> News </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-
                                     <a href="{{route("users.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-account-multiple mdi-24px"></i>
                                         <span> Users </span>
@@ -81,12 +81,16 @@
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
-                                        <i class="mdi mdi-logout mdi-24px"></i>
-                                        <span> Logout </span>
-                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="side-nav-link" href="route('logout')"
+                                           onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            <i class="mdi mdi-logout mdi-24px"></i>
+                                            <span> Logout </span>
+                                        </a>
+                                    </form>
                                 </li>
-
 
                             </ul>
 
