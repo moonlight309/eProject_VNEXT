@@ -7,15 +7,6 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    function store(Request $request)
-    {
-    }
-
-    function addNews(Request $request)
-    {
-        return view('news.create');
-    }
-
     public function index(Request $request)
     {
         $search = $request->search;
@@ -28,4 +19,21 @@ class NewsController extends Controller
             'search' => $search
         ]);
     }
+
+    function addNews(Request $request)
+    {
+        return view('news.create');
+    }
+
+    function store(Request $request)
+    {
+        $data            = [];
+        $data['title']   = $request->title;
+        $data['content'] = $request->content;
+
+        News::create($data);
+
+        return redirect()->route('news.index');
+    }
+
 }
