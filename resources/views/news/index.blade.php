@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-4" style="text-align: right">
             <a href="{{ route('news.create') }}" class="btn btn-success mb-2"><i class="mdi mdi-plus-circle mr-2"></i>
-                Add New</a>
+                Add News</a>
         </div>
     </div>
     <table class="table table-striped table-centered mb-0">
@@ -23,11 +23,11 @@
             <th>Title</th>
             <th>Content</th>
         </tr>
-        </thead>
+    </thead>
         <tbody>
         @foreach($news as $data)
             <tr>
-                <td><a href="">{{$data->title}}</a></td>
+                <td><a href="{{ URL::to('news/detail/'. $data->id) }}">{{$data->title}}</a></td>
                 <td><p style="width: 350px;
             overflow: hidden;
             white-space: nowrap;

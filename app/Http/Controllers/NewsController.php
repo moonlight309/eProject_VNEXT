@@ -36,4 +36,22 @@ class NewsController extends Controller
         return redirect()->route('news.index');
     }
 
+    function detail($id)
+    {
+        $news = News::find($id);
+
+        return view('news.detail', [
+            'news' => $news
+        ]);
+    }
+
+    function edit($id)
+    {
+        $news = News::find($id);
+
+        return view('news.edit', [
+            'news' => $news
+        ]);
+    }
+
 }

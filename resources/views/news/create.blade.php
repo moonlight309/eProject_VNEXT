@@ -30,7 +30,11 @@
     <script src="{{ asset('js/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('js/demo.summernote.js') }}"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('ckeditor_content');
+        CKEDITOR.replace('ckeditor_content', {
+            filebrowserImageUploadUrl: '{{ url('upload-ckeditor?_token='.csrf_token()) }}',
+            filebrowerUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = 700;
         entities: false
 
     </script>

@@ -36,4 +36,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d',
     ];
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'created_user', 'id');
+    }
 }

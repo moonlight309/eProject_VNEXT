@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    protected $table = 'news';
     public $timestamps = true;
+    protected $table = 'news';
     use SoftDeletes, HasApiTokens, HasFactory, Notifiable;
-
     protected $fillable = [
         'title',
         'content',
@@ -30,19 +29,24 @@ class News extends Model
         parent::boot();
 
         static::creating(function ($user) {
-            $cookie = Auth::user();
+            $cookie             = Auth::user();
             $user->created_user = $cookie->id;
         });
 
         static::updating(function ($user) {
-            $cookie = Auth::user();
+            $cookie             = Auth::user();
             $user->updated_user = $cookie->id;
         });
 
         static::deleting(function ($user) {
-            $cookie = Auth::user();
+            $cookie             = Auth::user();
             $user->deleted_user = $cookie->id;
         });
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_user', 'id');
     }
 
 }
