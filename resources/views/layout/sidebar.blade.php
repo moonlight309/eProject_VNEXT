@@ -27,70 +27,61 @@
                                 <li class="side-nav-title side-nav-item">Navigation</li>
 
                                 <li class="side-nav-item">
-
-                                    <a href="" class="side-nav-link">
-                                        <i class="mdi mdi-account-circle-outline"></i>
-                                        <span> Hello,
-                                        @isset(Auth::user()->name)
-                                                {{ Auth::user()->name }}
-                                            @endisset
-                                        </span>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span> Hello,  </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{ route('home') }}" class="side-nav-link">
-                                        <i class="mdi mdi-home mdi-24px"></i>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
                                         <span> Home </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{route("products.index")}}" class="side-nav-link">
-                                        <i class="mdi mdi-store mdi-24px"></i>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
                                         <span> Products </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{route("categories.index")}}" class="side-nav-link">
-                                        <i class="mdi mdi-github-circle mdi-24px"></i>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
                                         <span> Categories </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{route("makers.index")}}" class="side-nav-link">
-                                        <i class="mdi mdi-database-marker mdi-24px"></i>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
                                         <span> Makers </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{route("news.index")}}" class="side-nav-link">
-                                        <i class="mdi mdi-newspaper mdi-24px"></i>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
                                         <span> News </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="{{route("users.index")}}" class="side-nav-link">
-                                        <i class="mdi mdi-account-multiple mdi-24px"></i>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
                                         <span> Users </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <a class="side-nav-link" href="route('logout')"
-                                           onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                            <i class="mdi mdi-logout mdi-24px"></i>
-                                            <span> Logout </span>
-                                        </a>
-                                    </form>
+                                    <a href="javascript: void(0);" class="side-nav-link">
+                                        <i class="uil-home-alt"></i>
+                                        <span> Logout </span>
+                                    </a>
                                 </li>
+
 
                             </ul>
 
@@ -111,8 +102,7 @@
             <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
         </div>
         <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
-            <div class="simplebar-scrollbar"
-                 style="height: 0px; transform: translate3d(0px, 0px, 0px); display: none;"></div>
+            <div class="simplebar-scrollbar" style="height: 0px; transform: translate3d(0px, 0px, 0px); display: none;"></div>
         </div>
     </div>
     <!-- Sidebar -left -->
