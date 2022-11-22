@@ -29,7 +29,11 @@
                                 <li class="side-nav-item">
                                     <a href="javascript: void(0);" class="side-nav-link">
                                         <i class="uil-home-alt"></i>
-                                        <span> Hello,  </span>
+                                        <span> Hello,
+                                        @isset(Auth::user()->name)
+                                            {{ Auth::user()->name }}
+                                        @endisset
+                                        </span>
                                     </a>
                                 </li>
 
@@ -76,10 +80,15 @@
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="javascript: void(0);" class="side-nav-link">
-                                        <i class="uil-home-alt"></i>
-                                        <span> Logout </span>
-                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="side-nav-link" href="route('logout')"
+                                           onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            <i class="uil-home-alt"></i>
+                                            <span> Logout </span>
+                                        </a>
+                                    </form>
                                 </li>
 
 
