@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\Maker\StoreRequest;
+
 use App\Models\Maker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +12,25 @@ use Illuminate\Support\Facades\Redirect;
 
 class MakerController extends Controller
 {
+
+    public function list_maker(Request $request)
+    {
+        $search = $request->search;
+
+        $makers = Maker::where('name', 'LIKE', "%$search%")
+            ->orWhere('code', 'LIKE', "%$search%")
+            ->paginate(3);
+        $makers->appends(['search' => $search]);
+
+        return view('list_maker', [
+            'makers' => $makers,
+            'search' => $search
+        ]);
+
+    }
+
+
+
     public function detail()
     {
 //        $maker = Maker::find($id);
@@ -26,9 +47,9 @@ class MakerController extends Controller
     {
         DB::beginTransaction();
         try {
-//            dd('1');
-            $data             = $request->validated();
-             dd($data);
+
+            $data = $request->validated();
+
             $imageName = uniqid() . time() . '.' . $request->logo->extension();
             $request->logo->move(public_path('images/maker'), $imageName);
 
@@ -81,4 +102,7 @@ class MakerController extends Controller
 
         return Redirect::to('/');
     }
+
 }
+
+

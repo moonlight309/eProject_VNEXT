@@ -5,6 +5,21 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Controller;
+
+
+//Route::get('/', 'App\Http\Controllers\ProductController@list_product');
+//Route::get('/maker', 'App\Http\Controllers\MakerController@list_maker');
+//Route::get('/new', 'App\Http\Controllers\NewsController@list_new');
+//Route::get('/user', 'App\Http\Controllers\UserController@list_user');
+//Route::get('/category', 'App\Http\Controllers\CategoryController@list_category');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+//Route::group([
+//    'prefix' => 'products',
+//    'as' => 'categories.',
+//]);
+
+
 
 Route::get('/', function () {
     return view('layout.master');
@@ -47,4 +62,5 @@ Route::prefix('product')->group(function () {
     Route::get('detail/{id}', [ProductController::class, 'detail'])->name('product.detail');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
+

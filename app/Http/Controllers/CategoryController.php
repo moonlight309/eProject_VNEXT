@@ -3,17 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+
+use App\Models\Maker;
+
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        $category = Category::paginate(5);
-        return view('category.index', [
-            'category' => $category,
+        $search = $request->search;
+
+        $categories = Category::where('name', 'LIKE', "%$search%")
+            ->orWhere('code', 'LIKE', "%$search%")
+            ->paginate(3);
+        $categories->appends(['search' => $search]);
+
+        return view('list_category', [
+            'categories' => $categories,
+            'search' => $search
         ]);
     }
+
+//    public function index()
+//    {
+//        $category = Category::paginate(5);
+//        return view('category.index', [
+//            'category' => $category,
+//        ]);
+//    }
 
     public function create()
     {
@@ -61,6 +81,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
+
 
     }
 }
