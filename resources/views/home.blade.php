@@ -1,25 +1,26 @@
 @extends('layout.master')
 @push('css')
-    <style>
-        p {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            line-height: 25px;
-            -webkit-line-clamp: 3;
-            height: 75px;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-        }
-    </style>
+    {{--    <style>--}}
+    {{--        p {--}}
+    {{--            overflow: hidden;--}}
+    {{--            text-overflow: ellipsis;--}}
+    {{--            line-height: 25px;--}}
+    {{--            -webkit-line-clamp: 3;--}}
+    {{--            height: 75px;--}}
+    {{--            display: -webkit-box;--}}
+    {{--            -webkit-box-orient: vertical;--}}
+    {{--        }--}}
+    {{--    </style>--}}
 @endpush
 @section('content')
 
     <div class="card">
         <div class="card-body">
             <h1>Top 10 News</h1>
-            <a style="float: right; border-radius: 10px" href="" class="btn btn-primary">
-                Add News
-            </a><br><br>
+            <div class="col-sm-12" style="text-align: right">
+                <a style="border-radius: 10px" href="{{ route('news.create') }}" class="btn btn-success mb-2"><i
+                            class="mdi mdi-plus-circle mr-2"></i> Add News</a>
+            </div>
             <table id="table_news" class="table table-centered mb-0">
                 <thead class="thead-dark">
                 <tr>
@@ -30,8 +31,11 @@
                 <tbody>
                 @foreach( $topTenNews as $news )
                     <tr>
-                        <td><p>{{ $news->title }}</p></td>
-                        <td><p>{{ $news->content }}</p></td>
+                        <td><a href="{{ URL::to('news/detail/'. $news->id) }}">{{ $news->title }}</a></td>
+                        <td><p style="width: 350px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;">{{ $news->content }}</p></td>
                     </tr>
                 @endforeach
                 <tr>
@@ -46,9 +50,10 @@
     <div class="card">
         <div class="card-body">
             <h1>Top 10 Products</h1>
-            <a style="float: right; border-radius: 10px" href="" class="btn btn-primary">
-                Add Products
-            </a><br><br>
+            <div class="col-sm-12" style="text-align: right">
+                <a style="border-radius: 10px" href="" class="btn btn-success mb-2"><i
+                            class="mdi mdi-plus-circle mr-2"></i> Add Products</a>
+            </div>
             <table class="table table-centered mb-0">
                 <thead class="thead-dark">
                 <tr>
@@ -79,9 +84,10 @@
     <div class="card">
         <div class="card-body">
             <h1>Top 10 Users</h1>
-            <a style="float: right; border-radius: 10px" href="" class="btn btn-primary">
-                Add Users
-            </a><br><br>
+            <div class="col-sm-12" style="text-align: right">
+                <a style="border-radius: 10px" href="" class="btn btn-success mb-2"><i
+                            class="mdi mdi-plus-circle mr-2"></i> Add User</a>
+            </div>
             <table class="table table-centered mb-0">
                 <thead class="thead-dark">
                 <tr>

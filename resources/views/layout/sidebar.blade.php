@@ -32,14 +32,14 @@
                                         <i class="mdi mdi-account-circle-outline"></i>
                                         <span> Hello,
                                         @isset(Auth::user()->name)
-                                            {{ Auth::user()->name }}
-                                        @endisset
+                                                {{ Auth::user()->name }}
+                                            @endisset
                                         </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{ route('home') }}" class="side-nav-link">
                                         <i class="mdi mdi-home mdi-24px"></i>
                                         <span> Home </span>
                                     </a>
@@ -111,7 +111,8 @@
             <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
         </div>
         <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
-            <div class="simplebar-scrollbar" style="height: 0px; transform: translate3d(0px, 0px, 0px); display: none;"></div>
+            <div class="simplebar-scrollbar"
+                 style="height: 0px; transform: translate3d(0px, 0px, 0px); display: none;"></div>
         </div>
     </div>
     <!-- Sidebar -left -->

@@ -78,3 +78,4 @@ require __DIR__ . '/auth.php';
 
 Route::get('/news/create', [NewsController::class, 'addNews'])->name('news.create');
 Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
+Route::get('/news/detail/{id}', [NewsController::class, 'detail'])->name('news.detail');
