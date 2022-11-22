@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
-    public function list_product(Request $request)
+    public function index(Request $request)
     {
         $search = $request->search;
         $products = Product::where('name', 'LIKE', "%$search%")
@@ -23,18 +23,14 @@ class ProductController extends Controller
         $products->appends(['search' => $search]);
 
 
-        return view('list_product', [
+        return view('product.index', [
             'products' => $products,
             'search' => $search
         ]);
     }
 
 
-    public function index()
-    {
-        // $maker = Maker::all();
-        // return view('product.create', ['maker' => $maker]);
-    }
+
 
 
     public function create()
@@ -45,7 +41,7 @@ class ProductController extends Controller
         // foreach ($product as $key) {
         // }
         // $image = json_decode($key->image);
-        return view('product.create', ['maker' => $maker, 'category' => $category]);
+        return view('products.create', ['maker' => $maker, 'category' => $category]);
     }
 
 
@@ -76,7 +72,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return redirect()->route('product.create')->with('sucess', 'Thêm thành công');
+        return redirect()->route('products.create')->with('sucess', 'Thêm thành công');
     }
 
 
@@ -91,7 +87,7 @@ class ProductController extends Controller
         // }
         // $image = json_decode($key->image);
         //dd($categoryProduct);
-        return view('product.update', ['maker' => $maker, 'category' => $category, 'product' => $product, 'categoryProduct' => $categoryProduct]);
+        return view('products.update', ['maker' => $maker, 'category' => $category, 'product' => $product, 'categoryProduct' => $categoryProduct]);
     }
 
 
@@ -122,7 +118,7 @@ class ProductController extends Controller
         $product_edit->maker_id = $request->input('maker_id');
         $product_edit->save();
         CategoryProduct::where('product_id', $id)->update(['category_id' => $request->input('category_id')]);
-        return redirect()->route('home');
+        return redirect()->route('products.index');
     }
 
 
@@ -136,11 +132,11 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
         CategoryProduct::where('product_id', $id)->delete();
-        return redirect()->route('home');
+        return redirect()->route('products.index');
     }
     public function detail($id)
     {
         $product = Product::find($id);
-        return view('product.detail', ["product" => $product]);
+        return view('products.detail', ["product" => $product]);
     }
 }

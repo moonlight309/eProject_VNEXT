@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 class MakerController extends Controller
 {
 
-    public function list_maker(Request $request)
+    public function index(Request $request)
     {
         $search = $request->search;
 
@@ -22,7 +22,7 @@ class MakerController extends Controller
             ->paginate(3);
         $makers->appends(['search' => $search]);
 
-        return view('list_maker', [
+        return view('maker.index', [
             'makers' => $makers,
             'search' => $search
         ]);

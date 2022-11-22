@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function list_user(Request $request)
+    public function index(Request $request)
     {
         $search = $request->search;
 
@@ -20,7 +20,7 @@ class UserController extends Controller
         $users->appends(['search' => $search]);
 
 
-        return view('list_user', [
+        return view('user.index', [
             'users' => $users,
             'search' => $search
         ]);

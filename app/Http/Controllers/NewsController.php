@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function list_new(Request $request)
+    public function index(Request $request)
     {
 
 
@@ -17,7 +17,7 @@ class NewsController extends Controller
         $news->appends(['search' => $search]);
 
 
-        return view('list_new', [
+        return view('new.index', [
             'news' => $news,
             'search' => $search
         ]);

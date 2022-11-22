@@ -21,7 +21,7 @@ class CategoryController extends Controller
             ->paginate(3);
         $categories->appends(['search' => $search]);
 
-        return view('list_category', [
+        return view('category.index', [
             'categories' => $categories,
             'search' => $search
         ]);
