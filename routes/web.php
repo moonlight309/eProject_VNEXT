@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MakerController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
@@ -56,20 +58,41 @@ Route::group([
     'prefix' => 'makers',
     'as'     => 'makers.',
 ], function () {
+    Route::get('/', [MakerController::class, 'index'])->name('index');
     Route::get('create', [MakerController::class, 'create'])->name('create');
     Route::post('store', [MakerController::class, 'store'])->name('store');
     Route::get('edit', [MakerController::class, 'edit'])->name('edit');
     Route::get('detail', [MakerController::class, 'detail'])->name('detail');
 });
 
-Route::prefix('product')->group(function () {
-    //Route::get('products', [ProductController::class, 'index'])->name('product.home');
-    Route::get('create', [ProductController::class, 'create'])->name('product.create');
-    Route::post('store', [ProductController::class, 'store'])->name('product.store');
-    Route::get('show/{id}', [ProductController::class, 'show'])->name('product.show');
-    Route::put('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-    Route::delete('destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-    Route::get('detail/{id}', [ProductController::class, 'detail'])->name('product.detail');
+Route::group([
+    'prefix' => 'products',
+    'as' => 'products.',
+],function () {
+    Route::get('/', [ProductController::class, 'index'])->name('index');
+    Route::get('create', [ProductController::class, 'create'])->name('create');
+    Route::post('store', [ProductController::class, 'store'])->name('store');
+    Route::get('show/{id}', [ProductController::class, 'show'])->name('show');
+    Route::put('edit/{id}', [ProductController::class, 'edit'])->name('edit');
+    Route::delete('destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
+    Route::get('detail/{id}', [ProductController::class, 'detail'])->name('detail');
+});
+
+Route::group([
+    'prefix' => 'news',
+    'as' => 'news.',
+],function () {
+    Route::get('/', [NewsController::class, 'index'])->name('index');
+
+});
+
+Route::group([
+    'prefix' => 'users',
+    'as' => 'users.',
+],function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+
 });
 
 require __DIR__ . '/auth.php';
+

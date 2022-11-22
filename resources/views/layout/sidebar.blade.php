@@ -46,35 +46,35 @@
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{route("products.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-store mdi-24px"></i>
                                         <span> Products </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{route("categories.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-github-circle mdi-24px"></i>
                                         <span> Categories </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{route("makers.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-database-marker mdi-24px"></i>
                                         <span> Makers </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{route("news.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-newspaper mdi-24px"></i>
                                         <span> News </span>
                                     </a>
                                 </li>
 
                                 <li class="side-nav-item">
-                                    <a href="" class="side-nav-link">
+                                    <a href="{{route("users.index")}}" class="side-nav-link">
                                         <i class="mdi mdi-account-multiple mdi-24px"></i>
                                         <span> Users </span>
                                     </a>
