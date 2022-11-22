@@ -8,19 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'code',
-        'name',
-        'parent_id',
-        'created_user',
-        'updated_user',
-        'deleted_user'
-    ];
-
-    public function chils()
-    {
-        return $this->hasMany(Category::class, 'parent_id', 'id');
-    }
-
 }

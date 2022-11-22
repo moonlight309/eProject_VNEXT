@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="Coderthemes" name="author">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -17,8 +16,6 @@
     <!-- App css -->
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app-creative.min.css') }}" rel="stylesheet" type="text/css" id="light-style">
-    @stack('css')
-
 </head>
 
 <body class="" data-layout-config="{&quot;leftSideBarTheme&quot;:&quot;dark&quot;,&quot;layoutBoxed&quot;:false, &quot;leftSidebarCondensed&quot;:false, &quot;leftSidebarScrollable&quot;:false,&quot;darkMode&quot;:false, &quot;showRightSidebarOnStart&quot;: true}" data-leftbar-theme="dark">
@@ -84,8 +81,6 @@
 <!-- bundle -->
 <script src="{{ asset('js/vendor.min.js') }}"></script>
 <script src="{{ asset('js/app.min.js') }}"></script>
-@stack('js')
-
 
 <!-- third party js -->
 <!-- third party js ends -->
