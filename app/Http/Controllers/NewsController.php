@@ -9,19 +9,23 @@ class NewsController extends Controller
 {
     function store(Request $request)
     {
-        $news = new News();
-        $news->title = $request->title;
-        $news->content = $request->content;
-        // $news->created_user = $request->created_user;
-        // $news->updated_user = $request->updated_user;
-        // $news->deleted_user = $request->deleted_user;
-        // $news->created_at = $request->created_at;
-        // $news->updated_at = $request->updated_at;
-        $news->save();
-        return redirect()->route('news.create');
     }
+
     function addNews(Request $request)
     {
         return view('news.create');
+    }
+
+    public function index(Request $request)
+    {
+        $search = $request->search;
+        $news   = News::where('title', 'LIKE', "%$search%")
+            ->paginate(3);
+        $news->appends(['search' => $search]);
+
+        return view('news.index', [
+            'news'   => $news,
+            'search' => $search
+        ]);
     }
 }

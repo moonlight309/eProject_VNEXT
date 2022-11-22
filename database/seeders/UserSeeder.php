@@ -12,10 +12,11 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data = [
-            'name'     => 'Admin',
-            'email'    => 'admin@gmail.com',
-            'password' => Hash::make('123123123'),
-            'role'     => 0,
+            'name'              => 'Admin',
+            'email'             => 'admin@gmail.com',
+            'password'          => Hash::make('123123123'),
+            'email_verified_at' => now(),
+            'role'              => 0,
         ];
 
         User::query()->create($data);
