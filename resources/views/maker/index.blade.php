@@ -12,7 +12,7 @@
             </form>
         </div>
         <div class="col-sm-4" style="text-align: right">
-            <a href="javascript:void(0);" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add Maker</a>
+            <a href="javascript:void(0);" class="btn btn-success mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add Maker</a>
         </div>
     </div>
 

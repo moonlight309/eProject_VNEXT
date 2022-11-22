@@ -4,7 +4,7 @@
         <div>
             <form method="GET">
                 <div class="input-group">
-                    <input value="{{ $search }}" name="search" type="search" class="form-control" placeholder="Search..." id="top-search">
+                    <input value="{{ $search }}" name="search"  type="serch" class="form-control" placeholder="Search..." id="top-search" >
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </div>
@@ -12,24 +12,27 @@
             </form>
         </div>
         <div class="col-sm-4" style="text-align: right">
-            <a href="javascript:void(0);" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add New</a>
+            <a href="javascript:void(0);" class="btn btn-success mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add User</a>
         </div>
     </div>
     <table class="table table-striped table-centered mb-0">
         <thead>
         <tr>
-            <th>Title</th>
-            <th>Content</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Avatar</th>
+            <th>Birthday</th>
+            <th>Phone</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($news as $data)
+        @foreach($users as $data)
             <tr>
-                <td><a href="">{{$data->title}}</a></td>
-                <td ><p style="width: 350px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;">{{$data->content}}</p></td>
+                <td><a href="">{{$data->name}}</a></td>
+                <td>{{$data->email}}</td>
+                <td><img src="{{$data->avatar}}" alt="" style="width: 150px; height: 150px"> </td>
+                <td>{{$data->birthday}}</td>
+                <td >{{$data->phone}}</td>
             </tr>
         @endforeach
 
@@ -37,5 +40,5 @@
         {{--    {{ $data->links() }}--}}
 
     </table>
-    {{ $news->links() }}
+    {{ $users->links() }}
 @endsection

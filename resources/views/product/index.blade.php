@@ -12,11 +12,11 @@
             </form>
         </div>
         <div class="col-sm-4" style="text-align: right">
-            <a href="javascript:void(0);" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add Products</a>
+            <a href="javascript:void(0);" class="btn btn-success mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add Products</a>
         </div>
     </div>
-<table class="table table-striped table-centered mb-0">
-    <thead>
+    <table class="table table-striped table-centered mb-0">
+        <thead>
         <tr>
             <th>Code</th>
             <th>Name</th>
@@ -25,25 +25,25 @@
             <th>Price</th>
             <th>Color</th>
         </tr>
-    </thead>
-    <tbody>
-    @foreach($products as $data)
-        <tr>
-            <td>{{$data->code}}</td>
-            <td><a href="">{{$data->name}}</a></td>
-            <td><img src="{{$data->image}}" alt="" style="width: 150px; height: 150px"> </td>
-            <td ><p style="width: 150px;
+        </thead>
+        <tbody>
+        @foreach($products as $data)
+            <tr>
+                <td>{{$data->code}}</td>
+                <td><a href="">{{$data->name}}</a></td>
+                <td><img src="{{$data->image}}" alt="" style="width: 150px; height: 150px"> </td>
+                <td ><p style="width: 150px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;">{{$data->description}}</p></td>
-            <td>{{$data->price}}</td>
-            <td>{{$data->color}}</td>
-        </tr>
-    @endforeach
+                <td>{{$data->price}}</td>
+                <td>{{$data->color}}</td>
+            </tr>
+        @endforeach
 
-    </tbody>
-{{--    {{ $data->links() }}--}}
+        </tbody>
+        {{--    {{ $data->links() }}--}}
 
-</table>
-{{ $products->links() }}
+    </table>
+    {{ $products->links() }}
 @endsection
